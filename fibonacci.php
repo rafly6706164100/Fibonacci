@@ -1,28 +1,29 @@
+<form method="POST">
+<input type="number" name="num" />
+<input type="submit" name="submit"/>
+<//form>  
+
 <?php
+if (isset($_POST['submit'])) $input = $_POST['num'];
+else $input = 1;
 
-$input1 = 4;
-$input2 = 7;
-  
-
-echo "input $input1 : ";
-showData($input1);
-
-echo "input $input2 : ";
-showData($input2);
+echo "input $input : ";
+showData($input);
 
 function showData($n) {
 	$angka_sebelumnya = 0;
 	$angka_sekarang = 1;
+	$total = 0;
+	for ($i=0; $i<$n; $i++)
 	
-	echo "$angka_sebelumnya $angka_sekarang";
-for ($i=0; $i<$n; $i++)
 {
   $output = $angka_sekarang + $angka_sebelumnya;
-  echo " $output";
+  $total += $output;
 
   $angka_sebelumnya = $angka_sekarang;
   $angka_sekarang = $output;
 } 
+echo "$total";
 echo"<br>";
 }
 ?>
